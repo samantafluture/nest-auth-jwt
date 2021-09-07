@@ -44,6 +44,11 @@ export class AuthService {
       (u) =>
         u.username === username && bcrypt.compareSync(password, u.password),
     );
+
+    if (!user) {
+      throw new Error('User not found!');
+    }
+
     return user;
   }
 }
