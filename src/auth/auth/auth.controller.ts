@@ -22,4 +22,10 @@ export class AuthController {
       name: 'Samanta Fluture',
     };
   }
+
+  @UseGuards(JwtGuard)
+  @Get('user')
+  user(@Req() req) {
+    return req.user;
+  }
 }
